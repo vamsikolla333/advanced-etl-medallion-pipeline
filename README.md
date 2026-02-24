@@ -23,8 +23,8 @@ Uses NYC Yellow Taxi trip data as example.
 1. Install dependencies:
  ''bash
 pip install -r requirements.txt
-# or manually:
-# pip install "apache-airflow[apache-spark]==2.10.5" pyspark==3.5.3
+or manually:
+pip install "apache-airflow[apache-spark]==2.10.5" pyspark==3.5.3
 
 2.Add Spark connection in Airflow UI:
 Admin → Connections
@@ -40,14 +40,20 @@ curl -L -o data/raw/yellow_tripdata_2025-01.parquet \https://d37ci6vzurychx.clou
 
 5.Start Airflow → enable → trigger medallion_taxi_pipeline
 
-Output folders (relative to your home or project):
+# Output folders (relative to your home or project):
 \~/airflow/data/silver/yellow_trip_silver/
 \~/airflow/data/gold/daily_metrics/
 
-Production Notes / Next Steps:
+# Production Notes / Next Steps:
+
 1.Replace local paths with s3a:// or abfss://
+
 2.Use Delta Lake format + MERGE for incremental processing
+
 3.Add Great Expectations or custom checks
+
 4.Deploy on MWAA / Astronomer / Kubernetes
+
 5.Use Airflow Variables for paths & configs
+
 Feel free to use / fork / improve!
