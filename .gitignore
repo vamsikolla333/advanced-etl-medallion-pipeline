@@ -1,0 +1,38 @@
+```gitignore
+# Python / Airflow common ignores
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.env
+*.egg-info/
+dist/
+build/
+
+# Airflow specific
+airflow.cfg
+airflow-webserver.pid
+logs/
+*.log
+airflow.db
+webserver_config.py
+
+# Data folders - never commit raw/processed data
+data/
+*.parquet
+*.csv
+*.json
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Misc
+*.bak
+*.tmp
