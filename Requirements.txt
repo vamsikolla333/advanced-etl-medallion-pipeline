@@ -1,0 +1,5 @@
+apache-airflow==2.10.5
+apache-airflow-providers-apache-spark==2.1.0
+pyspark==3.5.3
+# Optional helpers
+pandas==2.2.3
