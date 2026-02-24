@@ -33,7 +33,9 @@ Type: Spark
 Extra (JSON): {"spark.master": "local[*]"}
 
 3.Get sample data:
+
 mkdir -p data/raw
+
 curl -L -o data/raw/yellow_tripdata_2025-01.parquet \https://d37ci6vzurychx.cloudfront.net/trip-data/yellow_tripdata_2025-01.parquet
 
 4.Place DAG in $AIRFLOW_HOME/dags/ and spark_jobs/ folder next to it (or adjust paths).
