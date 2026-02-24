@@ -1,24 +1,34 @@
-# Advanced ETL Medallion Pipeline – Airflow + PySpark
+# Advanced ETL Medallion Pipeline with Airflow & PySpark
 
-Hands-on project implementing **Medallion Architecture** (Bronze → Silver → Gold):
+End-to-end data pipeline demonstrating **Medallion Architecture** (Bronze → Silver → Gold) using:
 
-- **Apache Airflow** → orchestration, scheduling, monitoring, retries
-- **PySpark** → distributed cleaning & aggregation
-- Storage: Parquet files (local dev; production-ready for Delta/S3)
+- **Apache Airflow** for orchestration, scheduling, dependency management & monitoring
+- **PySpark** for scalable distributed transformations
+- Parquet storage (Delta Lake ready)
 
-Uses NYC Yellow Taxi trip data as example.
+Example dataset: NYC Yellow Taxi trips (publicly available)
 
-## Project Goals
-- Demonstrate end-to-end ETL with clear quality layers
-- Show Airflow + Spark integration
-- Keep it simple but production-pattern friendly
+## Why this project?
+- Bridges classic ETL with modern lakehouse patterns
+- Shows real Airflow + Spark integration
+- Production-like structure: modular jobs, validation, idempotency basics
 
 ## Architecture
-1. Bronze: raw landing zone (as-is data)
-2. Silver: cleaned, typed, deduplicated, enriched
-3. Gold: business-ready aggregates (daily metrics by zone)
 
-## Local Setup
+1. **Bronze** → Raw ingestion (as-is data landing)
+2. **Silver** → Data quality: cleaning, type casting, deduplication, metadata
+3. **Gold** → Business value: daily aggregates by pickup zone (trip count, avg distance, revenue)
+
+Orchestrated via a single Airflow DAG with SparkSubmitOperator tasks.
+
+## Tech Stack
+
+- Apache Airflow 2.10+
+- PySpark 3.5+
+- Parquet format
+- Local execution (easily extensible to EMR, Databricks, Kubernetes)
+
+## Quick Start (Local Development)
 
 1. Install dependencies:
  ''bash
